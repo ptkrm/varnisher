@@ -9,3 +9,5 @@ __   ____ _ _ __ _ __  _ ___| |__   ___ _ __
 ```
 
 to perform crappy test on varnish as sometime i have to do this stuff over and over , crappy code crappy everything
+
+THIS CODE IS A MESS!!!!! NEED TO CLEAN!!!
