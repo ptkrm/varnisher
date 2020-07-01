@@ -108,3 +108,30 @@ if args.url:
 
         headers = headers.fromkeys(xIPHeader, i)
         r = requestT(urlParsed, headers)
+
+    ## lets try with HOST
+    print('\n')
+    print(Fore.YELLOW + 'Request with Host value as server')
+    print(Style.RESET_ALL)
+    headers.update({'Host':str(ipHeader[1])})
+    r = requestT(urlParsed, headers)
+
+    ## lets try with HOST
+    print('\n')
+    print(Fore.YELLOW + 'Request with Host value as server + X-Forwarded-Proto')
+    print(Style.RESET_ALL)
+    headers.update({'Host':str(ipHeader[1])})
+    headers.update({'X-Forwarded-Proto':'https'})
+    r = requestT(urlParsed, headers)
+
+    ## lets try crazy paths
+    print(Fore.YELLOW + 'Crazy paths + Host + X-Forwarded-Proto')
+    print(Style.RESET_ALL)
+    headers.update({'Host':str(ipHeader[1])})
+    headers.update({'X-Forwarded-Proto':'https'})
+    
+    for i in paths:
+        alterPath = i.replace("{}",urlParsed.path)
+        alterUrl = urlParsed._replace(path=alterPath)
+        ##print(alterUrl)
+        r = requestP(alterUrl, headers)
