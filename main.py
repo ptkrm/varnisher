@@ -124,7 +124,7 @@ if args.url:
     headers.update({'X-Forwarded-Proto':'https'})
     r = requestT(urlParsed, headers)
 
-    ## lets try crazy paths
+    ## HOST
     print('\n')
     print(Fore.YELLOW + 'Crazy paths + Host + X-Forwarded-Proto')
     print(Style.RESET_ALL)
@@ -136,3 +136,11 @@ if args.url:
         alterUrl = urlParsed._replace(path=alterPath)
         ##print(alterUrl)
         r = requestP(alterUrl, headers)
+
+    ## lets try with HOST
+    print('\n')
+    print(Fore.YELLOW + 'Request with Host uppercase + X-Forwarded-proto')
+    print(Style.RESET_ALL)
+    headers.update({'Host':str(urlParsed.netloc).upper()})
+    headers.update({'X-Forwarded-Proto':'https'})
+    r = requestT(urlParsed, headers)
