@@ -144,3 +144,4 @@ if args.url:
     headers.update({'Host':str(urlParsed.netloc).upper()})
     headers.update({'X-Forwarded-Proto':'https'})
     r = requestT(urlParsed, headers)
+    
